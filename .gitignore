@@ -1,0 +1,104 @@
+# ============================================================
+# Unity — engine-generated artifacts
+# ============================================================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Asset/Scene-based metadata
+*.booproj
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.unityproj
+*.dll
+*.mdb
+*.opendb
+*.VC.db
+
+# Auto-generated VS/Rider project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+sysinfo.txt
+
+# Unity3D generated meta files (we keep meta, exclude broken)
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D build artifacts
+ExportedObj/
+.consulo/
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Crashlytics/Bugreports
+crashlytics-build.properties
+
+# ============================================================
+# IDE & OS
+# ============================================================
+.vs/
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/workspace.xml
+.idea/shelf/
+.idea/tasks.xml
+.idea/.name
+.idea/dictionaries/
+.idea/httpRequests/
+.idea/sonarlint/
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+ehthumbs_vista.db
+
+# ============================================================
+# Project-local
+# ============================================================
+# Raw VARCO exports can be large; keep outside repo or LFS
+varco_source/**/raw/
+varco_source/**/*.tmp
+
+# Build outputs
+/build/
+*.zip
+*.7z
+!docs/**/*.zip
+
+# Video/screen recordings (use external storage)
+*.mov
+*.mp4
+*.mkv
+!docs/**/*.mp4
+
+# Secrets
+.env
+.env.local
+*.pem
+
+# Claude Code (local-only settings)
+.claude/settings.local.json
