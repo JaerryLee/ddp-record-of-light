@@ -30,6 +30,10 @@
 - [10 · Submission](10-submission.md) — 제출물 사양·체크리스트
 - [11 · Risks](11-risks.md) — 리스크 레지스터
 
+### ④ Environment Setup
+- [UNITY_SETUP.md](UNITY_SETUP.md) — Unity 최초 오픈 7단계 (macOS 중심)
+- [WINDOWS_WSL2_SETUP.md](WINDOWS_WSL2_SETUP.md) — Windows + WSL2 이어받기 원샷 가이드
+
 ## 문서 작성 규칙
 
 1. **권위 문서 (Source of Truth)** — 본 세트는 프로젝트 내 모든 설계 결정의 근거. Slack·이메일 논의 결과는 해당 문서에 반영해야 확정된 것으로 간주
