@@ -16,14 +16,18 @@ Project Settings → **Player → Other Settings → Active Input Handling**
 
 > 이 설정 없이는 `PlayerController.cs`의 `Keyboard.current` / `Mouse.current` 가 null 상태로 남아 입력이 먹지 않습니다.
 
-## 3. URP Asset·Renderer 생성
+## 3. URP Asset·Renderer 확인 (자동)
 
-본 리포엔 URP 패키지만 포함되어 있고 실제 URP 설정 에셋은 Unity가 최초 오픈 시 자동 생성하지 않습니다. 한 번만 수동 생성:
+**Unity 6은 첫 실행 시 URP 기본 에셋을 자동 생성합니다.** 리포를 Open 후 `Assets/` 루트에 다음 파일이 있으면 셋업 완료:
 
+- `UniversalRenderPipelineGlobalSettings.asset`
+- `DefaultVolumeProfile.asset`
+
+없으면 수동 생성:
 1. `Assets/_Project/Settings/` 에서 우클릭 → **Create → Rendering → URP Asset (with Universal Renderer)**
-2. 이름: `URP_Asset` (함께 생성된 `URP_Asset_Renderer`는 그대로 둠)
-3. Project Settings → **Graphics → Scriptable Render Pipeline Settings** 에 방금 만든 `URP_Asset` 드래그
-4. Project Settings → **Quality** 각 티어 (Low/Mid/High)에도 동일 `URP_Asset` 드래그 (Sprint 4에서 티어별 분리 예정)
+2. 이름: `URP_Asset`
+3. Project Settings → **Graphics → Scriptable Render Pipeline Settings** 에 드래그
+4. Project Settings → **Quality** 각 티어 (Low/Mid/High)에도 할당
 
 ## 4. 최초 씬 생성
 
