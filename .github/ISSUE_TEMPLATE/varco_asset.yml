@@ -1,0 +1,66 @@
+name: 🎨 VARCO 에셋 작업
+description: VARCO 3D · Sound · Voice 에셋 생성·수정 작업 티켓.
+title: "[varco] "
+labels: ["varco"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        모든 VARCO 작업은 완료 시 `docs/varco_manifest.csv` 및
+        `docs/08-varco-pipeline.md §6` 스키마에 등록되어야 합니다.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 에셋 종류
+      options:
+        - VARCO 3D
+        - VARCO Sound
+        - VARCO Voice
+    validations:
+      required: true
+  - type: input
+    id: asset_id
+    attributes:
+      label: Asset ID
+      placeholder: "예) E012, S004, V007"
+    validations:
+      required: true
+  - type: input
+    id: asset_name
+    attributes:
+      label: 에셋 이름
+      placeholder: "예) Crystal_C3, BGM_Baeumter, VO_Archive_Intro_01"
+    validations:
+      required: true
+  - type: input
+    id: scene_use
+    attributes:
+      label: 사용 위치
+      placeholder: "Zone1 / Zone2 / Zone3 / Global"
+  - type: textarea
+    id: prompt
+    attributes:
+      label: 프롬프트
+      description: 영문 권장. 핵심 키워드 포함.
+      placeholder: |
+        A sleek cyan-glowing crystal memory module with a hexagonal
+        base, soft inner light pulsing, PBR materials, game-ready,
+        neutral pose, centered.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 완료 기준 (DoD)
+      description: Manifest 등록·머티리얼 재매핑·Prefab화 등
+      value: |
+        - [ ] VARCO에서 3회 이상 생성·최상 1개 선정
+        - [ ] Blender 리토폴·UV 정리 (3D 한정)
+        - [ ] 프로젝트 머티리얼 재매핑
+        - [ ] Prefab 또는 AudioClip import 완료
+        - [ ] `docs/varco_manifest.csv` 등록
+        - [ ] Before/After 스크린샷 저장 (`docs/evidence/`)
+  - type: textarea
+    id: references
+    attributes:
+      label: 참고 이미지·링크

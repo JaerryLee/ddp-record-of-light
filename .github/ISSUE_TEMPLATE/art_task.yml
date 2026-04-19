@@ -1,0 +1,40 @@
+name: 🖼️ 아트 작업
+description: 아트·3D·VFX·셰이더·라이팅 작업 (VARCO 에셋은 별도 템플릿 사용).
+title: "[art] "
+labels: ["art"]
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 범위
+      options:
+        - 3D Model (non-VARCO)
+        - Material / Shader
+        - Lighting / Post
+        - VFX / Particle
+        - UI Graphics
+        - Moodboard / Reference
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 목표
+      placeholder: "예) Zone 2 전시홀의 조명 기둥을 emissive 머티리얼로 통일"
+    validations:
+      required: true
+  - type: textarea
+    id: spec
+    attributes:
+      label: 명세·예산
+      description: "docs/04-art-direction.md §7 Asset Quality Targets 준수"
+      value: |
+        - 트라이앵글 상한:
+        - 텍스처 크기:
+        - LOD 단수:
+        - 셰이더:
+  - type: input
+    id: deadline
+    attributes:
+      label: 스프린트·마감
+      placeholder: "Sprint 3 / 2026-05-01"

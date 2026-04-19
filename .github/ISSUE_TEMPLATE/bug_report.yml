@@ -1,0 +1,61 @@
+name: 🐛 버그 리포트
+description: 재현 가능한 버그를 보고합니다.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        프로덕션 빌드·Unity 에디터 어느 쪽에서든 재현되면 보고해 주세요.
+  - type: textarea
+    id: summary
+    attributes:
+      label: 요약
+      description: 무엇이 잘못되었는지 한 문장으로
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 재현 절차
+      placeholder: |
+        1. Zone 1 진입
+        2. 광원 A 앞 Node에 프리즘 배치
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대 동작
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 실제 동작
+    validations:
+      required: true
+  - type: dropdown
+    id: env
+    attributes:
+      label: 실행 환경
+      multiple: true
+      options:
+        - Unity Editor (macOS)
+        - Unity Editor (Windows)
+        - Standalone Windows x64
+        - Standalone macOS
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: 커밋 SHA 또는 브랜치
+      placeholder: ex) main @ 88eec3b
+  - type: textarea
+    id: logs
+    attributes:
+      label: 콘솔 로그·스크린샷
+      description: Unity Console의 Error/Exception을 붙여주세요.
+      render: shell

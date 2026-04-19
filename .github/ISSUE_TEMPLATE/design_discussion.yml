@@ -1,0 +1,58 @@
+name: 💬 디자인 논의
+description: 게임 디자인·레벨·UX·서사 관련 오픈 논의.
+title: "[discussion] "
+labels: ["discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        결정이 필요한 디자인 이슈를 공론화합니다. 결론이 정해지면
+        해당 기획 문서(`docs/*.md`)에 반영하고 이슈를 닫습니다.
+  - type: textarea
+    id: question
+    attributes:
+      label: 논의 주제
+      placeholder: "예) Splitter와 Filter를 하나로 통합할지 분리 유지할지"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 배경·현재 문서 위치
+      description: "관련 기획 문서 경로·섹션, 이미 합의된 결정이 있다면 링크"
+      placeholder: "docs/01-game-design.md §4.2"
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: 후보안
+      placeholder: |
+        A. …  장점/단점
+        B. …  장점/단점
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: 영향 범위
+      description: 스프린트·리스크·다른 문서
+  - type: dropdown
+    id: area
+    attributes:
+      label: 영역
+      options:
+        - design
+        - level
+        - art
+        - audio
+        - tech
+        - production
+        - varco
+    validations:
+      required: true
+  - type: input
+    id: deadline
+    attributes:
+      label: 결정 마감일
+      placeholder: "YYYY-MM-DD"

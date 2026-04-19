@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 공모전 안내 (SBA · NC AI)
+    url: https://kiweb.or.kr/contest/sba-ncai-2026
+    about: 서울 플레이업 AI 게임 챌린지 2026 공식 페이지
+  - name: 공모전 문의 메일
+    url: mailto:ncai.game@ncsoft.com?subject=%5B%EA%B3%B5%EB%AA%A8%EC%A0%84%20%EB%AC%B8%EC%9D%98%5D
+    about: 메일 제목 [공모전 문의] 필수
