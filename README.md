@@ -3,18 +3,10 @@
 > 제1회 **서울 플레이업 AI 게임 챌린지** (2026) 출품작
 > 공모전 페이지: <https://kiweb.or.kr/contest/sba-ncai-2026>
 > 장르: 3D 1인칭 퍼즐-탐험 · 플랫폼: PC **Windows 64-bit + macOS (Apple Silicon + Intel)** · 엔진: **Unity 6 LTS (URP)**
-> 제출 마감: **2026-05-07**
 
 2045년 대정전 이후의 DDP. 플레이어는 서울의 기억을 빛으로 복원하는 수습 연구원이 되어, 곡면 공간을 프리즘으로 관통시켜 메모리 크리스털을 되살린다.
 
 ---
-
-## Quick Links
-
-- 📘 **[기획 문서 전체 보기](docs/README.md)** — Pitch · Game Design · Narrative · Levels · Art · Audio · UI/UX · Technical · VARCO · Production · Submission · Risks
-- 🗓 **[개발 일정](docs/09-production-plan.md)** — 2026-04-19 ~ 2026-05-07
-- 🎨 **[VARCO 파이프라인](docs/08-varco-pipeline.md)**
-- 📦 **[제출물 체크리스트](docs/10-submission.md)**
 
 ## Repository Layout
 
@@ -40,7 +32,7 @@
 ├── build/               # 로컬 빌드 산출물 (gitignored)
 ├── .gitignore
 ├── .gitattributes       # Git LFS 구성 포함
-└── README.md            # (본 파일)
+└── README.md            
 ```
 
 > `ProjectSettings/`, `Packages/`, `Library/`는 Unity 초기 실행 시 자동 생성되며 `Library/`는 `.gitignore`에 포함되어 있습니다.
@@ -50,13 +42,13 @@
 개발은 **macOS · Windows 양쪽에서 동일하게** 동작합니다. 빌드 타겟도 Win64 + macOS Universal 두 가지입니다.
 
 ### 최초 셋업
-1. **Unity Hub**에서 **Unity 6 LTS** (본 리포는 `6000.4.3f1` 기준) 설치
+1. **Unity Hub**에서 **Unity 6 LTS** (`6000.4.3f1` 기준) 설치
    - 필수 모듈: *Windows Build Support (Mono)* + *Mac Build Support (IL2CPP)*
 2. Unity Hub → **Open** → 본 리포 루트 (`/Users/...<repo>/`) 선택
    - `Packages/manifest.json`과 `ProjectSettings/ProjectVersion.txt`가 동봉되어 있어 자동 인식
-   - 첫 오픈 시 URP 17·Input System 1.11·TextMeshPro가 내려받기됩니다 (수 분 소요)
+   - 첫 오픈 시 URP 17·Input System 1.11·TextMeshPro가 내려받기됩니다.
 3. Project Settings → **Player → Active Input Handling**을 `Input System Package (New)`로 변경
-4. `Assets/_Project/Scripts/` 컴파일 완료 확인 (에러 0건)
+4. `Assets/_Project/Scripts/` 컴파일 완료 확인
 
 ### Git LFS
 ```bash
@@ -73,21 +65,3 @@ choco install git-lfs && git lfs install
 | Windows | `StandaloneWindows64` (IL2CPP) | `build/Windows/DDP_RecordOfLight.exe` |
 | macOS | `StandaloneOSX` (IL2CPP, Universal) | `build/macOS/DDP_RecordOfLight.app` |
 
-> **공모 제출용 1차 빌드는 Windows 64-bit를 기본**으로 제출합니다. macOS 빌드는 개발·QA 및 본선 확장용으로 유지.
-
-## Team
-
-| 역할 | 담당 |
-|---|---|
-| Direction / Programming / Level | Jerry (JaerryLee) |
-| VARCO 3D · Sound · Voice | Jerry |
-| QA | TBD (Sprint 4) |
-
-## License
-
-저작권은 참가자(본 팀)에 귀속됩니다. 공모 요강에 따라 SBA·NC AI는 홍보 목적 범위 내 활용 가능합니다.
-본선 진출 및 외부 공개 시 별도 라이선스(CC BY-NC-SA 또는 상용) 결정 예정.
-
----
-
-*Made with Unity · VARCO 3D · VARCO Sound · VARCO Voice*
