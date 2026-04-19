@@ -6,10 +6,10 @@
 
 | 항목 | 값 | 근거 |
 |---|---|---|
-| 엔진 | **Unity 2022.3 LTS** | 안정 LTS, 본선까지 업데이트 불필요 |
-| 렌더 파이프 | **Universal Render Pipeline (URP) 14.x** | 퍼포먼스 + 모바일 가능성(본선) |
-| 언어 | C# (.NET Standard 2.1) | Unity 표준 |
-| 입력 | **New Input System 1.7+** | 키맵·게임패드 확장 용이 |
+| 엔진 | **Unity 6 LTS** (`6000.4.3f1` 기준) | 현 시점 최신 LTS, 본선까지 업데이트 불필요 |
+| 렌더 파이프 | **Universal Render Pipeline (URP) 17.x** | 퍼포먼스 + 플랫폼 호환성 + 모바일 가능성(본선) |
+| 언어 | C# 9 (.NET Standard 2.1) | Unity 표준 |
+| 입력 | **New Input System 1.11+** | 키맵·게임패드 확장 용이, 크로스플랫폼 |
 | UI | UGUI (1차) → UIToolkit (본선) | 1차는 검증된 UGUI |
 | 오디오 | Unity AudioMixer + 커스텀 Snapshot 스위칭 | 내장 충분 |
 | 세이브 | JSON via `System.Text.Json` on Application.persistentDataPath | 단일 슬롯이면 충분 |
@@ -18,7 +18,7 @@
 
 ## 2. Target Spec
 
-### 2.1 최소 사양
+### 2.1 최소 사양 (Windows)
 | 구성 | 값 |
 |---|---|
 | OS | Windows 10 64-bit (Build 19041+) |
@@ -27,8 +27,18 @@
 | RAM | 8 GB |
 | Storage | 4 GB (빌드+에셋), 2 GB 자유 공간 |
 
-### 2.2 권장 사양
-- GPU GTX 1660 / RTX 3050 이상, RAM 16 GB
+### 2.2 최소 사양 (macOS)
+| 구성 | 값 |
+|---|---|
+| OS | macOS 12 Monterey 이상 |
+| CPU | Apple Silicon (M1 이상) · Intel Core i5 2018+ |
+| GPU | Apple M1 통합 GPU / AMD Radeon Pro 560 이상 |
+| RAM | 8 GB (M1) · 16 GB (Intel) |
+| Storage | 동일 |
+
+### 2.3 권장 사양
+- Windows: GPU GTX 1660 / RTX 3050 이상, RAM 16 GB
+- macOS: M1 Pro · M2 이상, RAM 16 GB
 
 ### 2.3 해상도·프레임 목표
 - **1920×1080 @ 60fps** (권장 사양 기준, Mid 그래픽)
@@ -226,22 +236,37 @@ Zone 3 Volume:
 
 ## 11. Build Pipeline
 
-### 11.1 1차 제출 빌드
-- Target: Windows Standalone, x86_64
+### 11.1 타겟 매트릭스
+
+| 타겟 | Unity Build Target | 백엔드 | 산출물 |
+|---|---|---|---|
+| Windows x64 (1차 제출 주 빌드) | `StandaloneWindows64` | IL2CPP | `build/Windows/DDP_RecordOfLight.exe` |
+| macOS Universal | `StandaloneOSX` | IL2CPP | `build/macOS/DDP_RecordOfLight.app` |
+
+### 11.2 1차 제출 빌드
+- Target: **Windows Standalone x86_64** (공모전 제출본)
 - Backend: IL2CPP (성능), .NET Standard 2.1
 - Compression: LZ4HC
 - 산출물 예상 크기: 800 MB ~ 1.2 GB
 - 명명: `DDP_RecordOfLight_v1.0_Win64_YYYYMMDD.zip`
+- **macOS 빌드는 병행 생성**하여 QA 및 본선 확장에 대비 (제출은 Windows 빌드로 진행)
 
-### 11.2 빌드 스크립트 (로컬)
+### 11.3 빌드 스크립트 (로컬)
+```bash
+# macOS / Linux
+./tools/build.sh win64      # Windows 빌드
+./tools/build.sh macos      # macOS Universal 빌드
+./tools/build.sh all        # 둘 다
 ```
-# tools/build.ps1 또는 build.sh
-Unity -batchmode -projectPath . -buildTarget Win64 \
-      -executeMethod BuildScripts.BuildPlayer -logFile -
+```powershell
+# Windows PowerShell
+./tools/build.ps1 win64
+./tools/build.ps1 macos
 ```
+내부적으로는 Unity를 `-batchmode -buildTarget <target> -executeMethod BuildScripts.Build<Target>` 로 호출.
 
-### 11.3 검증
-- 최소 사양 머신(혹은 VM)에서 Boot → Ending까지 1회
+### 11.4 검증
+- Windows·macOS 각각 최소 사양 머신(혹은 VM)에서 Boot → Ending까지 1회
 - Frame time log 저장 (`Logs/frametime.csv`)
 - 오디오 Peak ≤ -1 dBTP 확인 (Youlean LUFS Meter)
 

@@ -20,10 +20,11 @@
 **목표**: 리포·문서·Unity 프로젝트 셋업
 - [x] 기획 문서 세트 13종 초안 작성
 - [x] 리포 부트스트랩 (Assets 구조, .gitignore, .gitattributes)
-- [ ] git init + 원격 연결
-- [ ] Unity Hub에서 본 폴더를 Unity 2022.3 LTS 프로젝트로 Add
-- [ ] URP 템플릿 적용, Settings 폴더 구성
-- [ ] New Input System 설치·Player.inputactions 스캐폴드
+- [x] git init + 원격 연결 (github.com/JaerryLee/ddp-record-of-light)
+- [x] Unity 프로젝트 스켈레톤 (manifest.json, ProjectVersion.txt) → Unity Hub에서 Open 가능
+- [x] Sprint 1 코어 스크립트 스캐폴드 (PlayerController, Prism, Beam, Crystal)
+- [x] GitHub 이슈 템플릿·라벨 셋업
+- [ ] 최초 Unity 오픈 후 URP Asset·Input Actions 수동 생성 (유저 수행)
 
 ### Sprint 1 — 4/20(Sun) ~ 4/23(Wed) · 4일 · "**프로토타입**"
 **목표**: 코어 메커닉 작동 (그레이박스 Zone 1)
@@ -103,7 +104,7 @@
 
 | 목적 | 도구 |
 |---|---|
-| 에디터 | Unity 2022.3 LTS · JetBrains Rider (or VSCode) |
+| 에디터 | Unity 6 LTS (6000.4.3f1) · JetBrains Rider (or VSCode) |
 | 3D 정리 | Blender 4.0+ |
 | 오디오 | Reaper · iZotope RX (선택) · Youlean LUFS Meter |
 | 녹화 | OBS Studio |

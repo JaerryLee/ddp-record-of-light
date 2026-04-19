@@ -2,7 +2,7 @@
 
 > 제1회 **서울 플레이업 AI 게임 챌린지** (2026) 출품작
 > 공모전 페이지: <https://kiweb.or.kr/contest/sba-ncai-2026>
-> 장르: 3D 1인칭 퍼즐-탐험 · 플랫폼: PC(Windows) · 엔진: Unity 2022 LTS(URP)
+> 장르: 3D 1인칭 퍼즐-탐험 · 플랫폼: PC **Windows 64-bit + macOS (Apple Silicon + Intel)** · 엔진: **Unity 6 LTS (URP)**
 > 제출 마감: **2026-05-07**
 
 2045년 대정전 이후의 DDP. 플레이어는 서울의 기억을 빛으로 복원하는 수습 연구원이 되어, 곡면 공간을 프리즘으로 관통시켜 메모리 크리스털을 되살린다.
@@ -47,14 +47,33 @@
 
 ## Getting Started (개발 환경)
 
-1. **Unity Hub**에서 **2022.3 LTS** 설치 후 본 리포 루트를 프로젝트로 Add
-2. URP 템플릿 적용 확인 — `Assets/_Project/Settings/URP_Asset.asset`이 없을 경우 초기 실행 시 생성
-3. 첫 씬: `Assets/_Project/Scenes/Boot/Boot.unity` (없다면 Sprint 0에서 생성)
-4. Git LFS 설치 필수:
-   ```bash
-   brew install git-lfs
-   git lfs install
-   ```
+개발은 **macOS · Windows 양쪽에서 동일하게** 동작합니다. 빌드 타겟도 Win64 + macOS Universal 두 가지입니다.
+
+### 최초 셋업
+1. **Unity Hub**에서 **Unity 6 LTS** (본 리포는 `6000.4.3f1` 기준) 설치
+   - 필수 모듈: *Windows Build Support (Mono)* + *Mac Build Support (IL2CPP)*
+2. Unity Hub → **Open** → 본 리포 루트 (`/Users/...<repo>/`) 선택
+   - `Packages/manifest.json`과 `ProjectSettings/ProjectVersion.txt`가 동봉되어 있어 자동 인식
+   - 첫 오픈 시 URP 17·Input System 1.11·TextMeshPro가 내려받기됩니다 (수 분 소요)
+3. Project Settings → **Player → Active Input Handling**을 `Input System Package (New)`로 변경
+4. `Assets/_Project/Scripts/` 컴파일 완료 확인 (에러 0건)
+
+### Git LFS
+```bash
+# macOS
+brew install git-lfs && git lfs install
+
+# Windows (Git for Windows + Chocolatey)
+choco install git-lfs && git lfs install
+```
+
+### 플랫폼별 빌드
+| 플랫폼 | Unity Build Target | 산출물 |
+|---|---|---|
+| Windows | `StandaloneWindows64` (IL2CPP) | `build/Windows/DDP_RecordOfLight.exe` |
+| macOS | `StandaloneOSX` (IL2CPP, Universal) | `build/macOS/DDP_RecordOfLight.app` |
+
+> **공모 제출용 1차 빌드는 Windows 64-bit를 기본**으로 제출합니다. macOS 빌드는 개발·QA 및 본선 확장용으로 유지.
 
 ## Team
 
