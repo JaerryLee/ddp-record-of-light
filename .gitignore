@@ -102,3 +102,6 @@ varco_source/**/*.tmp
 
 # Claude Code (local-only settings)
 .claude/settings.local.json
+
+# JetBrains IDE project/workspace (local-only)
+.idea/
